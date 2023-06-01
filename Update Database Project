@@ -1,5 +1,3 @@
-/* What does the app's SQL look like? */
-
 Create Table DNDBeyond (id integer primary key autoincrement, username text, character_name text);
 Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "Bernard");
 Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "Michaelangelo");
