@@ -1,0 +1,95 @@
+CREATE TABLE Characters (ID integer primary key AUTOINCREMENT, Name text, race text, force_user text);
+INSERT INTO Characters (name, race, force_user) VALUES ("Luke Skywalker", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Obi-Wan Kenobi", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Sheeve Palpetine", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Qui Gon Jinn", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Padme Amadala", "Human", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Maul", "Zabrak", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Yoda", "Unknown", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Jango Fett", "Mandolorian", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Boba Fet", "Clone", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Count Dooku", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Savage Opress", "Zabrak", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Asajj Ventress", "Dathomirian", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Ahsoka Tano", "Togruta", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Leia Organa", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Bael Organa", "Human", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Han Solo", "Human", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Chewbacca", "Wookie", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Lando Calrizian", "Human", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Hera Syndula", "Twi'lek", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Kanan Jarrus", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Jacen Syndula", "Hybrid", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Ezra Bridger", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Sabine Wren", "Mandalorian", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Garazeb 'Zeb' Orrelios", "Lasat", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Thrawn", "Chiss", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Rex", "Clone", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Cody", "Clone", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Rey Skywalker", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Finn", "Human", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Poe Dameron", "Human", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Ben Solo", "Human", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Din Djarin", "Mandolorian", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Din Grogu", "Unknown", "Yes");
+INSERT INTO Characters (name, race, force_user) VALUES ("Bo Katan", "Mandalorian", "No");
+INSERT INTO Characters (name, race, force_user) VALUES ("Anakin Skywalker", "Human", "Yes");
+
+CREATE TABLE Jedi_and_Sith (ID integer primary key AUTOINCREMENT, character_ID integer, Jedi_or_Sith text, Rank text);
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (1, "Jedi", "Knight");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (2, "Jedi", "Master");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (3, "Sith", "Master");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (4, "Jedi", "Knight");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (6, "Sith", "Apprentice");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (7, "Jedi", "Grand Master");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (10, "Sith", "Apprentice");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (11, "Sith", "Apprentice");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (12, "Sith", "Assassin");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (13, "Jedi", "Padawan");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (14, "Jedi", "None");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (20, "Jedi", "Knight");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (22, "Jedi", "Padawan");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (28, "Jedi", "Unranked");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (31, "Knight of Ren", "Master");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (33, "Unaffiliated", "None");
+INSERT INTO Jedi_and_Sith (character_Id, Jedi_or_Sith, Rank) VALUES (35, "Sith", "Apprentice");
+
+CREATE TABLE Sith_Name (ID integer primary key AUTOINCREMENT, Sith_ID integer, Sith_Name Text);
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (3, "Darth Sideous");
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (6, "Darth Maul");
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (10, "Darth Tyranus");
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (11, "Savage Opress");
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (12, "Asajj Ventress");
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (31, "Kylo Ren");
+INSERT INTO Sith_Name (sith_ID, Sith_name) Values (35, "Darth Vader");
+
+CREATE TABLE Master_and_Apprentice (ID integer primary key Autoincrement, Master_ID integer, Apprentice_ID integer);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (2, 1);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (2, 35);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (4, 2);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (3, 6);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (7, 10);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (10, 4);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (10, 12);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (3, 10);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (6, 11);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (1, 31);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (1, 14);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (14, 28);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (35, 13);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (1, 33);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (3, 35);
+INSERT INTO Master_and_Apprentice (Master_ID, Apprentice_ID) Values (20, 22); 
+
+Select characters.name, jedi_and_sith.jedi_or_sith, jedi_and_sith.rank, sith_name.Sith_name from Characters
+    join jedi_and_sith
+    on character_Id = characters.id
+    left outer join sith_name
+    on sith_id = characters.id;
+    
+Select a.name as "master", b.name as "apprentice" from Master_and_Apprentice
+    join characters a
+    on master_id = a.id
+    join characters b
+    on apprentice_id = b.id
+    Order by master;
