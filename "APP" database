@@ -1,0 +1,19 @@
+/* What does the app's SQL look like? */
+
+Create Table DNDBeyond (id integer primary key autoincrement, username text, character_name text);
+Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "Bernard");
+Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "Michaelangelo");
+Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "Styx");
+Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "King Madam Lori III Esquire MD");
+Insert into DNDBeyond (username, character_name) VALUES ("4everDM", "Reginald.");
+Insert into DNDBeyond (username, character_name) VALUES ("ThatGuy", "Faragon");
+Insert into DNDBeyond (username, character_name) VALUES ("xXxSneakMasterxXx", "Eddward");
+Insert into DNDBeyond (username, character_name) VALUES ("MrPewPew", "Wild Geb");
+Insert into DNDBeyond (username, character_name) VALUES ("Kyle_Manson", "Kyle");
+SELECT * FROM DNDBeyond;
+
+Update DNDBeyond set character_name = "Sum Gai" where id = 9;
+SELECT * FROM DNDBeyond;
+
+Delete from DNDBeyond where id=1;
+Select * From DNDBeyond;
