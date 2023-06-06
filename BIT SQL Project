@@ -75,3 +75,12 @@ SELECT product, sum(quantity*price) as total_revenue FROM BIT_DB.JanSales
 -GROUP BY product
 ORDER BY sum(quantity*price) desc 
 LIMIT 1
+
+/*Using Window Functions*/
+Select street, safetyrating, avg(safetyrating) over (partition by street) as "average_safety_rating",
+Case When avg(safetyrating) over (partition by street)>= 4 then "leave As-is"
+When avg(safetyrating) over (partition by street) <= 2.5 then "remove"
+else "Improvement Needed"
+end "recommendations"
+from CityBikeLanes
+
