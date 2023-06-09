@@ -1,0 +1,113 @@
+/* Show Customers who are not in the US. */
+--select FirstName, Lastname, country from chinook.customers
+--where country != "USA"
+
+/* Show only the customers from Brazil */
+--Select FirstName, LastName from chinook.customers
+--where country = "Brazil"
+
+/* Find the Invoices of customers who are from Brazil */
+--Select customers.firstname, customers.lastname, invoices.invoiceID, invoices.invoiceDate, invoices.BillingCountry From chinook.invoices
+--join chinook.customers
+--on invoices.customerid = customers.customerid
+--where country = "Brazil"
+
+/* Show the employees who are Sales Agents */
+--Select * From chinook.Employees
+--where title = "Sales Support Agent"
+
+/* Find a Unique/distinct list of billing counties from the invoice table */
+--Select distinct billingcountry from chinook.invoices
+
+/*Provide a query that shows the invoices associatred with each sales agent */
+--SELECT employees.Firstname, employees.LastName, invoices.InvoiceId FROM chinook.Employees
+--join chinook.customers
+--on employees.employeeid = customers.SupportRepId
+--join chinook.invoices
+--on customers.customerid = invoices.customerid
+
+/* Show the invoice total, customer name, country, and sales agent for all invoices and customers. */
+--Select customers.firstname, customers.last name, employees.first name, employees.last name, invoices.total, invoices.billingcountry from chinook.employees
+--join chinook.customers
+--on customers.supportrepid = employees.EmployeeId
+--join chinook.invoices
+--on invoices.customerid = customers.customerid
+
+/* How many invoices were there in 2009? */
+--Select count(*) from chinook.invoices
+--where invoicedate between '2009-01-01' and '2009-12-31'
+
+/* what are the total sales for 2009 */
+--Select Sum(total) from chinook.invoices
+--where invoicedate between '2009-01-01' and '2009-12-31'
+
+/* write a query that includes the purchased track name with each invoice ID */
+--Select invoices.invoiceid, tracks.name from chinook.invoices
+--join invoice_items
+--on invoices.invoiceID = invoice_items.InvoiceId
+--join tracks
+--on invoice_items.trackid = tracks.trackid
+
+/* Write a query that includes the purchased track name AND artist name with each invoice line ID */
+--Select invoices_items.invoicelineid, tracks.name, artists.name from chinook.invoice_items
+--left join chinook.tracks
+--on invoice_items.trackid = tracks.trackid
+--inner join chinook.albums
+--on albums.AlbumId = tracks.albumid
+--left join chinook.artists
+--on artists.ArtistId = albums.ArtistId
+
+/* Provide a query that shows all the tracks, including the album name, media type, and genre */
+--select tracks.name as "Track Name", albums.Title as "Album Name", media_types.name as "Media Type", genres.name as "Genre" from tracks
+--join albums
+--on albums.albumid = tracks.albumid
+--join media_types
+--on media_types.MediaTypeId = tracks.MediaTypeId
+--join genres
+--on genres.GenreId = tracks.GenreId
+
+/* Show the total sales made by each sales agent */
+--Select employees.firstname, employees.lastname, round(sum(invoices.total), 2) as "Total Sales" from chinook.employees
+--join chinook.customers
+--on customers.SupportRepId = employees.EmployeeId
+--join chinook.invoices
+--on invoices.CustomerId = customers.CustomerId
+--where employees.Title = "Sales Support Agent"
+--group by employees.FirstName
+
+/* Which Slaes agent made the most dollars in sales in 2009? */
+--Select employees.firstname, employees.lastname, round(sum(invoices.total), 2) as "Total Sales" from chinook.employees
+--join chinook.customers
+--on customers.SupportRepId = employees.EmployeeId
+--join chinook.invoices
+--on invoices.CustomerId = customers.CustomerId
+--where employees.Title = "Sales Support Agent" and invoices.InvoiceDate like "2009%"
+--group by employees.FirstName
+--order by (round(sum(Invoices.Total), 2))  desc
+--limit 1
+
+/* Which genre was most popular */
+--select genres.name, count(invoice_items.InvoiceLineId) from genres
+--join tracks
+--on tracks.GenreId = genres.GenreId
+--join invoice_items
+--on invoice_items.TrackId = tracks.TrackId
+--group by genres.name
+--order by count(invoice_items.InvoiceLineId) desc
+
+ /* How much money was spent in each country? */
+--Select BillingCountry, round(sum(Total), 2) as "total spent" from invoices
+--group by Billingcountry
+--order by round(sum(total), 2) desc
+ 
+/* What is the average spent per person */
+--Select round(sum(invoices.total)/count(customers.customerid), 2) as "Average Spent" from invoices
+--join customers
+--on customers.CustomerId = invoices.CustomerId
+
+/* What is the average spent per person per country */
+--Select invoices.BillingCountry, round(sum(invoices.total)/count(customers.customerid), 2) as "Average Spent" from invoices
+--join customers
+--on customers.customerid = invoices.CustomerId
+--group by invoices.BillingCountry
+--order by "average spent" desc
