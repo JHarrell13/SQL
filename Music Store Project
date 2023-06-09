@@ -1,3 +1,5 @@
+/* In this project, I was given various tables and asked to query data from it as well as come up with my own queries */
+
 /* Show Customers who are not in the US. */
 --select FirstName, Lastname, country from chinook.customers
 --where country != "USA"
